@@ -37,6 +37,7 @@ export const db = {
     sequelize,
     models: {
         Cooperante: require('./Cooperante')(sequelize),
+        Dato: require('./Dato')(sequelize),
         Universidad: require('./Universidad')(sequelize),
     }
 };
@@ -52,9 +53,11 @@ sequelize
 
 const associations = ({
     Cooperante,
+    Dato,
     Universidad
 }: any) => {
-    
+    Cooperante.hasMany(Dato, { foreignKey: 'cooperante_id' })
+    Universidad.hasMany(Dato, { foreignKey: 'universidad_id' })
 }
 
 associations(db.models)
