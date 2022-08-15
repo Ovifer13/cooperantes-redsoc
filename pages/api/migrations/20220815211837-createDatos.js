@@ -25,6 +25,14 @@ module.exports = {
                 model: 'universidades',
                 key: 'id'
               }
+          },
+          catalogo_dato_id: {
+            type: Sequelize.DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+              model: 'universidades',
+              key: 'id'
+            }
           }
       })
   },
