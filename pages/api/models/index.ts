@@ -58,8 +58,8 @@ const associations = ({
     Dato,
     Universidad
 }: any) => {
-    CatalogoDato.hasMany(Dato, { foreignKey: 'catalogo_dato_id' })
     Cooperante.hasMany(Dato, { foreignKey: 'cooperante_id' })
+    Dato.belongsTo(CatalogoDato, { foreignKey: 'catalogo_dato_id' })
     Universidad.hasMany(Dato, { foreignKey: 'universidad_id' })
 }
 
