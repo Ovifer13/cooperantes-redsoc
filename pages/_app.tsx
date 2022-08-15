@@ -7,7 +7,11 @@ import '../styles/index.scss'
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <ApolloProvider client={client}>
-            <Component {...pageProps} />
+            <div className=''>
+                <div>
+                    <Component {...pageProps} />
+                </div>
+            </div>
         </ApolloProvider>
     )
 }
