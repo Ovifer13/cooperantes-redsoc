@@ -16,14 +16,14 @@ module.exports = (sequelize: any) => {
             allowNull: false
         },
         siglas: {
-            type: DataTypes.STRING(2000)
+            type: DataTypes.STRING
         },
         mision: {
             type: DataTypes.STRING(2000),
             allowNull: false
         },
         vision: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(2000),
             allowNull: false
         },
         contacto: {
