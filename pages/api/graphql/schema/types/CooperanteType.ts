@@ -4,6 +4,7 @@ module.exports = gql`
 
   type Cooperante {
     id: Int
+    nombre: String
     siglas: String
     mision: String
     direccion: String

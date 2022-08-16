@@ -11,14 +11,18 @@ module.exports = (sequelize: any) => {
             autoIncrement: true,
             allowNull: false
         },
+        nombre: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         siglas: {
             type: DataTypes.STRING,
         },
         mision: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(2000),
         },
         direccion: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(500),
             allowNull: false
         },
         pais: {
