@@ -1,4 +1,4 @@
---Catalogo de datos
+-- Catalogo de datos
 INSERT INTO public.catalogo_datos
 VALUES
     (1, 'Email', '2022-08-15', '2022-08-15'),
@@ -10,7 +10,7 @@ VALUES
     (7, 'Fax', '2022-08-15', '2022-08-15'),
     (8, 'Youtube', '2022-08-15', '2022-08-15');
 
---Cooperantes
+-- Cooperantes
 INSERT INTO public.cooperantes
 VALUES
     (1, 'Agencia de Cooperación Internacional del Japón', 'JICA', 'La Agencia de la Cooperación Internacional del Japón (JICA), se estableció como una institución para implementar la cooperación técnica. El desarrollo sostenible es una de las intenciones principales de la cooperación de JICA.', 'Edificio Centro Letonia, Piso 10, Ofic. 10-1
@@ -35,6 +35,24 @@ VALUES
     (19, 'Programa de las Naciones Unidas para el Desarrollo', 'PNUD', 'El PNUD trabaja en unos 170 países y territorios, ayudando a erradicar la pobreza, reducir las desigualdades y la exclusión y desarrollar la resiliencia para que los países puedan progresar. Como agencia de desarrollo de la ONU, el PNUD desempeña un papel fundamental para ayudar a los países a alcanzar los Objetivos de Desarrollo Sostenible.', 'Avenida Francisco de Miranda, Torre Hewlett-Packard (HP), piso 6, oficina 6-A, Urb. Los Palos Grandes', 'Venezuela', 'Caracas 1060', '2022-08-15', '2022-08-15'),
     (20, 'Sistema Económico Latinoamericano', 'SELA', 'Promover un sistema de consulta y coordinación para concertar posiciones y estrategias comunes de América Latina y el Caribe, en materia económica, ante países, grupos de naciones, foros y organismos internacionales e impulsar la cooperación y la integración entre países de América Latina y el Caribe.', 'Avenida Francisco de Miranda, Torre Europa, Piso 4, Urbanización Campo Alegre', 'Venezuela', 'Caracas 1060', '2022-08-15', '2022-08-15'),
     (21, 'Unión Europea - Delegación de la Comisión Europea en Venezuela', 'UE', 'Constituir un espacio de libertad, seguridad y justicia sin fronteras interiores. Desarrollar un mercado interior en el que la competencia sea libre en el marco de una economía social de mercado tendente al pleno empleo.', 'Edificio Centro Bancaribe, Piso 2, Calle París, Intersección con Avenida Principal de Las Mercedes', 'Venezuela', 'Caracas 1060', '2022-08-15', '2022-08-15');
+
+-- Universidades
+INSERT INTO public.universidades
+VALUES
+    (1, 'Universidad Católica Andrés Bello', 'UCAB', 'Ingeniería', 'Ingeniería Informática', 'Henry José Martínez León', 'Jefe de Cátedra-Coordinador de Servicio Comunitario', '2022-08-16', '2022-08-16'),
+    (2, 'Universidad Católica Andrés Bello', 'UCAB', 'Humanidades y Educación', 'Comunicación Social', 'María Gabriela Zubillaga Mattar', 'Coordinadora de Extensión Social', '2022-08-16', '2022-08-16'),
+    (3, 'Universidad Católica Andrés Bello', 'UCAB', 'Humanidades y Educación', 'Comunicación Social', 'Genevieve Saint-Surin', 'Coordinadora de Extensión y Pasantías', '2022-08-16', '2022-08-16'),
+    (4, 'Universidad Católica Andrés Bello', 'UCAB', 'Humanidades y Educación', 'Educación', 'Migdalia Lezama', 'Coordinadora de Servicio Comunitario', '2022-08-16', '2022-08-16'),
+    (5, 'Universidad Católica Andrés Bello', 'UCAB', 'Ciencias Sociales y Económicas', 'Relaciones Industriales', 'Desirée Popolo', 'Coordinadora de Proyección y Apoyo Educativo', '2022-08-16', '2022-08-16'),
+    (6, 'Universidad Católica Andrés Bello', 'UCAB', 'Ciencias Sociales y Económicas', 'Sociología', 'Alberto Rodríguez', 'Coordinador de Sociología', '2022-08-16', '2022-08-16'),
+    (7, 'Universidad Monteávila', 'UMA', null, 'Comunicación Social', 'Roberto Ruiz', 'Profesor de Radio', '2022-08-16', '2022-08-16');
+
+-- ONGS
+INSERT INTO public.ongs
+VALUES 
+    (1, 'Fundación Venezuela sin Límites', 'FVSL', 'Fortalecer a los agentes de cambio con acciones innovadoras, sostenibles y de impacto, a través de alianzas estratégicas, tecnología y comunicación para la transformación social.', 'Ser referencia como organización de vanguardia, que integra y potencia a los diferentes actores de la sociedad en pro de la transformación social.', 'Sandra Texeira', '2022-08-16', '2022-08-16'),
+    (2, 'Alianza Social de VenAmCham', null, 'Promover e incentivar la Responsabilidad Social Corporativa de las empresas privadas y públicas, con el fin de contribuir a mejorar la calidad de vida del venezolano.', 'Inspirar, fortalecer y enaltecer la Responsabilidad Social de la empresa venezolana como una de sus actividades diarias que emanen credibilidad, confianza y conecten emociones.', 'Margarita Méndez de Montero', '2022-08-16', '2022-08-16'),
+    (3, 'Sinergia, Red Venezolana de Organizaciones de la Sociedad Civil', null, 'Como espacio democrático de articulación de la Sociedad Civil organizada somos referencia nacional en la construcción del tejido social, con base en el ejercicio ético, responsable, creativo, e incluyente de la ciudadanía que se expresa en: Organizaciones fortalecidas y eficientes. Con impacto social, humano y ciudadano. Con sólidas relaciones de cooperación.', 'Ser espacio democrático de articulación, cooperación y creación de oportunidades de participación y fortalecimiento de las organizaciones de la Sociedad Civil, para contribuir a la excelencia del sector e incidir en la construcción de políticas sociales de interés público en aras de una mayor convivencialidad y equidad social.', 'Débora Van Berkel', '2022-08-16', '2022-08-16');
 
 --Datos
 INSERT INTO public.datos
@@ -152,4 +170,35 @@ VALUES
     (111, 'https://www.eeas.europa.eu/delegations/venezuela_es?s=195', 21, null, null, 3, '2022-08-15', '2022-08-15'),
     (112, 'https://www.facebook.com/UEenVenezuela', 21, null, null, 4, '2022-08-15', '2022-08-15'),
     (113, 'https://www.instagram.com/ueenvenezuela/', 21, null, null, 5, '2022-08-15', '2022-08-15'),
-    (114, 'https://twitter.com/UEenVenezuela', 21, null, null, 6, '2022-08-15', '2022-08-15');
+    (114, 'https://twitter.com/UEenVenezuela', 21, null, null, 6, '2022-08-15', '2022-08-15'),
+    (115, '+582124074446', null, 1, null, 2, '2022-08-16', '2022-08-16'),
+    (116, 'hemartin@ucab.edu.ve', null, 1, null, 1, '2022-08-16', '2022-08-16'),
+    (117, '+582124074607', null, 2, null, 2, '2022-08-16', '2022-08-16'),
+    (118, 'sc.comsoc@gmail.com', null, 2, null, 1, '2022-08-16', '2022-08-16'),
+    (119, '+582124074234', null, 3, null, 2, '2022-08-16', '2022-08-16'),
+    (120, 'gsaint@ucab.edu.ve', null, 3, null, 1, '2022-08-16', '2022-08-16'),
+    (121, 'mlezama@ucab.edu.ve', null, 4, null, 1, '2022-08-16', '2022-08-16'),
+    (122, '+582124074395', null, 5, null, 2, '2022-08-16', '2022-08-16'),
+    (123, 'popolof@ucab.edu.ve', null, 5, null, 1, '2022-08-16', '2022-08-16'),
+    (124, '+582124074214', null, 6, null, 2, '2022-08-16', '2022-08-16'),
+    (125, 'alrodrig@ucab.edu.ve', null, 6, null, 1, '2022-08-16', '2022-08-16'),
+    (126, 'robertoruiztovar@gmail.com', null, 7, null, 1, '2022-08-16', '2022-08-16'),
+    (127, '+584122718353', null, null, 1, 2, '2022-08-16', '2022-08-16'),
+    (128, 'administracion@venezuelasinlimites.org', null, null, 1, 1, '2022-08-16', '2022-08-16'),
+    (129, 'https://venezuelasinlimites.org/#', null, null, 1, 3, '2022-08-16', '2022-08-16'),
+    (130, 'https://www.facebook.com/fundacionvsl/', null, null, 1, 4, '2022-08-16', '2022-08-16'),
+    (131, 'https://www.instagram.com/venezuelasinlimites/', null, null, 1, 5, '2022-08-16', '2022-08-16'),
+    (132, 'https://twitter.com/FundacionVSL', null, null, 1, 6, '2022-08-16', '2022-08-16'),
+    (133, 'https://www.youtube.com/user/FundacionVSL', null, null, 1, 8, '2022-08-16', '2022-08-16'),
+    (134, 'mmontero@venamcham.org', null, null, 2, 1, '2022-08-16', '2022-08-16'),
+    (135, 'https://www.venamcham.org/alianza-social/', null, null, 2, 3, '2022-08-16', '2022-08-16'),
+    (136, 'https://www.facebook.com/venamcham/', null, null, 2, 4, '2022-08-16', '2022-08-16'),
+    (137, 'https://www.instagram.com/venamcham_oficial/', null, null, 2, 5, '2022-08-16', '2022-08-16'),
+    (138, 'https://twitter.com/VenAmCham', null, null, 2, 6, '2022-08-16', '2022-08-16'),
+    (139, 'https://www.youtube.com/channel/UC2FR6rL5MY1lvZi5AZxYj5g/featured', null, null, 2, 8, '2022-08-16', '2022-08-16'),
+    (140, 'deborah_vanberkel@yahoo.com', null, null, 3, 1, '2022-08-16', '2022-08-16'),
+    (141, 'https://acsinergia.org/', null, null, 3, 3, '2022-08-16', '2022-08-16'),
+    (142, 'https://www.facebook.com/acsinergia/', null, null, 3, 4, '2022-08-16', '2022-08-16'),
+    (143, 'https://www.instagram.com/acsinergia/', null, null, 3, 5, '2022-08-16', '2022-08-16'),
+    (144, 'https://twitter.com/acsinergia', null, null, 3, 6, '2022-08-16', '2022-08-16'),
+    (145, 'https://www.youtube.com/user/acsinergia', null, null, 3, 8, '2022-08-16', '2022-08-16');
