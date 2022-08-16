@@ -29,6 +29,13 @@ module.exports = (sequelize: any) => {
                 key: 'id'
             }
         },
+        ong_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'ongs',
+                key: 'id'
+            }
+        },
         catalogo_dato_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
