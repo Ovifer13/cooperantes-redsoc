@@ -1,9 +1,12 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import { useQuery } from '@apollo/client'
 
 import { GetTestData } from '../interfaces/TestInterfaces'
 
 import { GET_TEST } from '../operations/queries/TestQueries'
+import Section from '../components/Section'
+import Hero from '../components/Hero'
 
 const Home: NextPage = () => {
 
@@ -23,7 +26,12 @@ const Home: NextPage = () => {
 
     return (
         <h1 className='text-3xl font-bold'>
-            Home { data && getTest!.title }
+            <Head>
+                <title> Cooperanted Redsoc </title>
+            </Head>
+            <Section>
+                <Hero />
+            </Section>
         </h1>
     )
 }

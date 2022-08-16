@@ -3,15 +3,18 @@ import { ApolloProvider } from '@apollo/client'
 import client from '../config/apollo-client'
 
 import '../styles/index.scss'
+import Layout from '../components/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <ApolloProvider client={client}>
-            <div className=''>
-                <div>
-                    <Component {...pageProps} />
+            <Layout>
+                <div className=''>
+                    <div>
+                        <Component {...pageProps} />
+                    </div>
                 </div>
-            </div>
+            </Layout>
         </ApolloProvider>
     )
 }
