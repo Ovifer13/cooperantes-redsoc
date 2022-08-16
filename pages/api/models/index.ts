@@ -39,6 +39,7 @@ export const db = {
         CatalogoDato: require('./CatalogoDato')(sequelize),
         Cooperante: require('./Cooperante')(sequelize),
         Dato: require('./Dato')(sequelize),
+        Ong: require('./Ong')(sequelize),
         Universidad: require('./Universidad')(sequelize),
     }
 };
@@ -56,10 +57,12 @@ const associations = ({
     CatalogoDato,
     Cooperante,
     Dato,
+    Ong,
     Universidad
 }: any) => {
     Cooperante.hasMany(Dato, { foreignKey: 'cooperante_id' })
     Dato.belongsTo(CatalogoDato, { foreignKey: 'catalogo_dato_id' })
+    Ong.hasMany(Dato, { foreignKey: 'ong_id' })
     Universidad.hasMany(Dato, { foreignKey: 'universidad_id' })
 }
 
