@@ -16,11 +16,11 @@ module.exports = (sequelize: any) => {
             allowNull: false
         },
         siglas: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING(2000)
         },
         mision: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING(2000),
+            allowNull: false
         },
         vision: {
             type: DataTypes.STRING,
