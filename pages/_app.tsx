@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <ApolloProvider client={client}>
             <Layout>
-                <div className=''>
+                <div className="font-['Arial']">
                     <div>
                         <Component {...pageProps} />
                     </div>
