@@ -13,6 +13,9 @@ export const GET_UNIVERSIDADES = gql `
       datos {
         id
         nombre
+        catalogoDatos {
+          id
+        }
       }
     }
   }
