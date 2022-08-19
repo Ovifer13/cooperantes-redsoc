@@ -78,7 +78,7 @@ const OngModal = ({
                                 <p className='font-semibold text-gray'>Contacto</p> 
                                 { contacto }
                             </div>
-                            <div className={`${telefono.lenght ? 'block' : 'hidden'}`}>
+                            <div className={`${telefono.length ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Telefono</p> 
                                 {renderTelefonos()}
                             </div>

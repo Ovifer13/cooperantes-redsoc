@@ -61,11 +61,11 @@ const CooperanteModal = ({
                                 <p className='font-semibold text-gray'>Siglas</p> 
                                 { siglas }
                             </div>
-                            <div className={`${mision ? 'block' : 'hidden'}`}>
+                            <div className={`text-justify ${mision ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Mision</p> 
                                 { mision }
                             </div>
-                            <div className={`${telefono ? 'block' : 'hidden'}`}>
+                            <div className={`${telefono.length ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Telefono</p> 
                                 {renderTelefonos()}
                             </div>
