@@ -44,7 +44,7 @@ const Cooperantes = () => {
 
     return (
         <div className='Cooperantes mx-20'>
-            <div className='mb-12'>
+            <div className='my-12'>
                 <h1 className='text-center text-2xl font-bold mt-15 text-primary'>
                     { 'Cooperantes internacionales' }
                 </h1>

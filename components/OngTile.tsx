@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { dato } from '../interfaces/DatoInterfaces'
-
+import OngModal from './OngModal'
 
 interface OngTileProps {
     nombre: string,
@@ -20,6 +20,8 @@ const OngTile = ({
     datos
 }: OngTileProps) => {
     
+    const [open, setOpen] = useState(false)
+    
     let email: any
     const telefono:any = [] 
     let paginaWeb: any
@@ -28,7 +30,6 @@ const OngTile = ({
     let twitter: any
     let youtube: any
 
-    
     const getDatos = () => {
         return datos.map((d) => {
             const catalogoDatos = d.catalogoDatos[0].id
@@ -71,64 +72,32 @@ const OngTile = ({
             <div className='text-ellipsis overflow-hidden text-center font-semibold text-primary mb-2'>
                 { nombre }
             </div>
-            <div className='text-ellipsis- overflow-hidden'>
-                <p className='font-semibold text-gray'>Siglas</p> { siglas ? siglas : 'N/A' }
+            <div className="bg-gray-50 px-4 py-3 text-center">
+                  <button
+                    type="button"
+                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-10 py-2 bg-primary text-base font-medium text-white hover:bg-gray focus:outline-none focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={() => setOpen(true)}
+                  >
+                    Expandir
+                </button>
             </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Misíon</p> { mision ? mision : 'N/A' }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Visíon</p> { vision ? vision : 'N/A' }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Página Web</p>
-                {paginaWeb
-                    ? <a className='hover:font-bold hover:text-primary' href={paginaWeb}>{ paginaWeb ? paginaWeb : 'N/A' }</a>
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Contacto</p> { contacto ? contacto : 'N/A' }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Telefono</p> 
-                {telefono.length
-                    ? renderTelefonos() 
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Email</p>
-                { email ? email : 'N/A' }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Facebook</p> 
-                {facebook
-                    ? <a className='hover:font-bold hover:text-primary' href={facebook}>{ facebook ? facebook : 'N/A' }</a>
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Instagram</p>
-                {instagram
-                    ? <a className='hover:font-bold hover:text-primary' href={instagram}>{ instagram ? instagram : 'N/A' }</a>
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Twitter</p> 
-                {twitter
-                    ? <a className='hover:font-bold hover:text-primary' href={twitter}>{ twitter }</a>
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>YouTube</p> 
-                {youtube
-                    ? <a className='hover:font-bold hover:text-primary' href={youtube}>{ youtube }</a>
-                    : 'N/A'
-                }
-            </div>
+            <OngModal 
+                open={open}
+                setOpen={setOpen}
+                nombre={nombre}
+                siglas={siglas}
+                mision={mision}
+                vision={vision}
+                telefono={telefono}
+                email={email}
+                paginaWeb={paginaWeb}
+                facebook={facebook}
+                instagram={instagram}
+                twitter={twitter}
+                contacto={contacto}
+                youtube={youtube}
+                renderTelefonos={renderTelefonos}
+            />
         </div>
     )
 }

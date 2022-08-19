@@ -52,7 +52,7 @@ export default function Navbar() {
     const [open, setOpen] = useState(false)
     
     return (
-        <nav className='flex px-8 py-4 h-30 md:bg-solid-white md:px-24 xl:px-48'>
+        <nav className='flex px-8 py-4 h-30 md:bg-solid-white bg-gradient-to-r from-solid-white to-primary md:px-24 xl:px-48'>
             <MobileNav open={open} setOpen={setOpen} />
             <div className='w-6/12 flex md:w-3/12'>
                 <a href='/'>

@@ -44,7 +44,7 @@ const Universidades = () => {
 
     return (
         <div className='Universidades mx-20'>
-            <div className='mb-12'>
+            <div className='my-12'>
                 <h1 className='text-center text-2xl font-bold mt-15 text-primary'>
                     { 'Contactos Universidades' }
                 </h1>

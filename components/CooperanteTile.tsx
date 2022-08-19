@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { dato } from '../interfaces/DatoInterfaces'
-
+import CooperanteModal from './CooperanteModal'
 
 interface CooperanteTileProps {
     nombre: string,
@@ -21,6 +21,8 @@ const CooperanteTile = ({
     ciudad,
     datos
 }: CooperanteTileProps) => {
+
+    const [open, setOpen] = useState(false)
     
     let email: any
     const telefono:any = [] 
@@ -29,7 +31,6 @@ const CooperanteTile = ({
     let instagram: any
     let twitter: any
     let fax: any
-
     
     const getDatos = () => {
         return datos.map((d) => {
@@ -73,67 +74,33 @@ const CooperanteTile = ({
             <div className='text-ellipsis overflow-hidden text-center font-semibold text-primary mb-2'>
                 { nombre }
             </div>
-            <div className='text-ellipsis- overflow-hidden'>
-                <p className='font-semibold text-gray'>Siglas</p> { siglas ? siglas : 'N/A' }
+            <div className="bg-gray-50 px-4 py-3 text-center">
+                  <button
+                    type="button"
+                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-10 py-2 bg-primary text-base font-medium text-white hover:bg-gray focus:outline-none focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={() => setOpen(true)}
+                  >
+                    Expandir
+                </button>
             </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Mision</p> { mision ? mision : 'N/A' }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Telefono</p> 
-                {telefono.length
-                    ? renderTelefonos() 
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Fax</p>
-                { fax ? fax : 'N/A' }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Email</p>
-                { email ? email : 'N/A' }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Página Web</p>
-                {paginaWeb
-                    ? <a className='hover:font-bold hover:text-primary' href={paginaWeb}>{ paginaWeb ? paginaWeb : 'N/A' }</a>
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Facebook</p> 
-                {facebook
-                    ? <a className='hover:font-bold hover:text-primary' href={facebook}>{ facebook ? facebook : 'N/A' }</a>
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Instagram</p>
-                {instagram
-                    ? <a className='hover:font-bold hover:text-primary' href={instagram}>{ instagram ? instagram : 'N/A' }</a>
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Twitter</p> 
-                {twitter
-                    ? <a className='hover:font-bold hover:text-primary' href={twitter}>{ twitter }</a>
-                    : 'N/A'
-                }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Direccion</p> 
-                { direccion }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Ciudad</p> 
-                { ciudad }
-            </div>
-            <div className='text-ellipsis overflow-hidden'>
-                <p className='font-semibold text-gray'>Pais</p> 
-                { pais }
-            </div>
+            <CooperanteModal 
+                open={open}
+                setOpen={setOpen}
+                nombre={nombre}
+                siglas={siglas}
+                mision={mision}
+                telefono={telefono}
+                direccion={direccion}
+                pais={pais}
+                ciudad={ciudad}
+                email={email}
+                paginaWeb={paginaWeb}
+                facebook={facebook}
+                instagram={instagram}
+                twitter={twitter}
+                fax={fax}
+                renderTelefonos={renderTelefonos}
+            />
         </div>
     )
 }
