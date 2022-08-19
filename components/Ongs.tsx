@@ -17,8 +17,6 @@ const Ongs = () => {
     
     const ongs: any = data?.fetchOngs
 
-    console.log(ongs)
-
     const renderOngs = (ongs: ong[]) => {
         try {
             return ongs.map((ong: any, idx: any) => {
