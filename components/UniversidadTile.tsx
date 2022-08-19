@@ -22,8 +22,6 @@ const UniversidadTile = ({
     datos
 }: UniversidadTileProps) => {
     
-
-    console.log(datos)
     let email: any
     let telefono: any 
     
@@ -41,29 +39,35 @@ const UniversidadTile = ({
     getDatos()
 
     return (
-        <div className='grid grid-cols-1 gap-1 drop-shadow-2xl rounded-2xl px-6 py-6 mb-5s bg-solid-white truncate'>
-            <div className=''>
+        <div className='grid shadow grid-cols-1 gap-1 drop-shadow-2xl shadow-primary rounded-2xl px-6 py-6 mb-5s bg-solid-white truncate mb-10'>
+            <div className='text-ellipsis overflow-hidden text-center font-semibold text-primary mb-2'>
                 { nombre }
             </div>
-            <div className=''>
-                { siglas }
+            <div className='text-ellipsis overflow-hidden'>
+                <p className='font-semibold text-gray'>Siglas</p>{ siglas }
             </div>
-            <div className=''>
+            <div className='text-ellipsis overflow-hidden'>
+                <p className='font-semibold text-gray'>Facultad</p>
                 { facultad }
             </div>
-            <div className=''>
+            <div className='text-ellipsis overflow-hidden'>
+                <p className='font-semibold text-gray'>Escuela</p>
                 { escuela }
             </div>
-            <div className=''>
+            <div className='text-ellipsis overflow-hidden'>
+                <p className='font-semibold text-gray'>Contacto</p>
                 { contacto }
             </div>
-            <div className=''>
+            <div className='text-ellipsis overflow-hidden'>
+                <p className='font-semibold text-gray'>Cargo</p>
                 { cargo }
             </div>
-            <div className=''>
+            <div className='text-ellipsis overflow-hidden'>
+                <p className='font-semibold text-gray'>Telefono</p>
                 { telefono ? telefono : 'N/A' }
             </div>
-            <div className=''>
+            <div className='text-ellipsis overflow-hidden'>
+                <p className='font-semibold text-gray'>Email</p>
                 { email ? email : 'N/A' }
             </div>
         </div>
