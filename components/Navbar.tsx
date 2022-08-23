@@ -4,10 +4,8 @@ import HamburgerButton from './HamburgerButton'
 
 import { 
     LOGO, 
-    NAV_ITEMS,
-    ORGANIZACIONES_AFILIADAS_URL,
+    NAV_ITEMS
 } from '../constants'
-import { ORGANIZACIONES_AFILIADAS } from '../constants/strings'
 
 const renderNavItems = () => {
     return (
@@ -15,7 +13,7 @@ const renderNavItems = () => {
             return (
                 <a 
                     className='text-2xl font-bold my-4 text-primary md:mx-4 md:text-base md:text-solid-black md:my-0' 
-                    href={n != ORGANIZACIONES_AFILIADAS ? n.toLowerCase().replace(' ', '-') : ORGANIZACIONES_AFILIADAS_URL} 
+                    href={n.toLowerCase().replace(' ', '-')} 
                     key={i}
                 >
                     {n}

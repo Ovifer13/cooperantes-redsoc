@@ -70,7 +70,7 @@ const CooperanteTile = ({
     getDatos()
 
     return (
-        <div className='grid shadow grid-cols-1 gap-1 drop-shadow-2xl shadow-primary rounded-2xl px-6 py-6 mb-5s bg-solid-white truncate mb-10'>
+        <div className='grid shadow grid-cols-1 gap-1 drop-shadow-2xl shadow-primary rounded-2xl px-6 py-6 mb-5 bg-solid-white truncate mb-10'>
             <div className='text-ellipsis overflow-hidden text-center font-semibold text-primary mb-2'>
                 { nombre }
             </div>

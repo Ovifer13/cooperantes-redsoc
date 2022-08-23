@@ -1,5 +1,4 @@
 export const UNIVERSIDADES: string = 'Universidades'
 export const COOPERANTES: string = 'Cooperantes'
-export const ONG: string = 'ONG'
-export const ORGANIZACIONES_AFILIADAS: string = 'Organizaciones Afiliadas'
+export const ONG: string = 'Organizaciones Relacionadas'
 export const COOPERANTES_REDSOC: string = 'Cooperantes Redsoc'
