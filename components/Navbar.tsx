@@ -13,7 +13,7 @@ const renderNavItems = () => {
             return (
                 <a 
                     className='text-2xl font-bold my-4 text-primary md:mx-4 md:text-base md:text-solid-black md:my-0' 
-                    href={n.toLowerCase().replace(' ', '-')} 
+                    href={n != 'Administración' ? n.toLowerCase().replace(' ', '-') : 'administracion'} 
                     key={i}
                 >
                     {n}

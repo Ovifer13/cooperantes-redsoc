@@ -2,6 +2,7 @@ import {
     UNIVERSIDADES,
     COOPERANTES,
     ONG,
+    ADMINISTRACION
 } from './strings'
 
 // API
@@ -15,4 +16,4 @@ export const LOGO: string = 'https://i0.wp.com/redsoc.org.ve/wp-content/uploads/
 export const FAV_ICON: string = 'https://i0.wp.com/redsoc.org.ve/wp-content/uploads/2017/10/redsoc-favicon.png?fit=32%2C32&ssl=1'
 
 // Arrays
-export const NAV_ITEMS: Array<string> = [COOPERANTES, UNIVERSIDADES, ONG]
+export const NAV_ITEMS: Array<string> = [COOPERANTES, UNIVERSIDADES, ONG, ADMINISTRACION]
