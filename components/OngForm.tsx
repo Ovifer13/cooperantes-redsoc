@@ -1,13 +1,13 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify'
-import { CREATE_COOPERANTE } from "../operations/mutations/CooperanteMutations";
 import { CREATE_DATO } from "../operations/mutations/DatoMutations";
 
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from "next/router";
+import { CREATE_ONG } from "../operations/mutations/OngMutations";
 
-const CooperanteForm = ({}) => {
+const OngForm = ({}) => {
 
     const [nombre, setNombre] = useState('')
     const [siglas, setSiglas] = useState('')
@@ -19,25 +19,25 @@ const CooperanteForm = ({}) => {
     const [facebook, setFacebook] = useState('')
     const [instagram, setInstagram] = useState('')
     const [twitter, setTwitter] = useState('')
-    const [direccion, setDireccion] = useState('')
-    const [ciudad, setCiudad] = useState('')
-    const [pais, setPais] = useState('')
+    const [vision, setVision] = useState('')
+    const [contacto, setContacto] = useState('')
+    const [youtube, setYoutube] = useState('')
 
-    const [createCooperante, { error, data, loading }] = useMutation(CREATE_COOPERANTE)
+    const [createOng, { error, data, loading }] = useMutation(CREATE_ONG)
 
     const [createDato, { error: datoError, data: datoData, loading: datoLoading}] = useMutation(CREATE_DATO)
 
     const router = useRouter()
 
-    const saveDatos = async (cooperanteId: any) => {
+    const saveDatos = async (ongId: any) => {
         try {
-            const datos = [email, telefono, paginaWeb, facebook, instagram, twitter, fax]
+            const datos = [email, telefono, paginaWeb, facebook, instagram, twitter, fax, youtube]
             datos.map(async(d, id) => {
                 if (d) {
                     await createDato ({
                         variables: {
                             nombre: d,
-                            cooperante_id: cooperanteId,
+                            ong_id  : ongId,
                             catalogo_dato_id: (id+1)
                         }
                     })
@@ -48,9 +48,9 @@ const CooperanteForm = ({}) => {
         }
     }
 
-    const saveCooperante = async () => {
+    const saveOng = async () => {
         try {
-            const cooperante = await createCooperante({
+            const ong = await createOng({
                 variables: {
                     nombre: nombre
                         ? nombre
@@ -61,23 +61,20 @@ const CooperanteForm = ({}) => {
                     mision: mision
                         ? mision
                         : null,
-                    direccion: direccion
-                        ? direccion
+                    vision: vision
+                        ? vision
                         : null,
-                    pais: pais
-                        ? pais
-                        : null,
-                    ciudad: ciudad
-                        ? ciudad
+                    contacto: contacto
+                        ? contacto
                         : null
                 }
             })
-            if (cooperante) {
-                await saveDatos(cooperante.data.createCooperante.id)
+            if (ong) {
+                await saveDatos(ong.data.createOng.id)
             }
-            toast.success('Cooperante creado')
+            toast.success('Organización creada')
             setTimeout(() => {
-                router.push('universidades')
+                router.push('organizaciones-relacionadas')
             }, 2500)
         } catch (err) {
             toast.error('Error, intentelo de nuevo')
@@ -119,21 +116,20 @@ const CooperanteForm = ({}) => {
                         />
                     </div>
                     <div className='justify-self-center'>
-                        <p className='font-semibold text-gray'>Teléfono</p>
-                        <input 
+                        <p className='font-semibold text-gray'>Visión</p>
+                        <textarea 
                             className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
-                            type='text' 
-                            value={telefono}
-                            onChange={event => {setTelefono(event.target.value)}}
+                            value={vision}
+                            onChange={event => {setVision(event.target.value)}}
                         />
                     </div>
                     <div className='justify-self-center'>
-                        <p className='font-semibold text-gray'>Fax</p>
+                        <p className='font-semibold text-gray'>Contacto</p>
                         <input 
                             className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
                             type='text' 
-                            value={fax}
-                            onChange={event => {setFax(event.target.value)}}
+                            value={contacto}
+                            onChange={event => {setContacto(event.target.value)}}
                         />
                     </div>
                     <div className='justify-self-center'>
@@ -146,9 +142,18 @@ const CooperanteForm = ({}) => {
                         />
                     </div>
                     <div className='justify-self-center'>
-                        <p className='font-semibold text-gray'>Pagina Web</p>
+                        <p className='font-semibold text-gray'>Teléfono</p>
                         <input 
                             className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
+                            type='text' 
+                            value={telefono}
+                            onChange={event => {setTelefono(event.target.value)}}
+                        />
+                    </div>
+                    <div className='justify-self-center'>
+                        <p className='font-semibold text-gray'>Pagina Web</p>
+                        <input 
+                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white' 
                             type='url' 
                             value={paginaWeb}
                             onChange={event => {setPaginaWeb(event.target.value)}}
@@ -157,7 +162,7 @@ const CooperanteForm = ({}) => {
                     <div className='justify-self-center'>
                         <p className='font-semibold text-gray'>Facebook</p>
                         <input 
-                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
+                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white' 
                             type='url' 
                             value={facebook}
                             onChange={event => {setFacebook(event.target.value)}}
@@ -166,7 +171,7 @@ const CooperanteForm = ({}) => {
                     <div className='justify-self-center'>
                         <p className='font-semibold text-gray'>Instagram</p>
                         <input 
-                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
+                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white' 
                             type='url' 
                             value={instagram}
                             onChange={event => {setInstagram(event.target.value)}}
@@ -175,36 +180,19 @@ const CooperanteForm = ({}) => {
                     <div className='justify-self-center'>
                         <p className='font-semibold text-gray'>Twitter</p>
                         <input 
-                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
+                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white' 
                             type='url' 
                             value={twitter}
                             onChange={event => {setTwitter(event.target.value)}}
                         />
                     </div>
                     <div className='justify-self-center'>
-                        <p className='font-semibold text-gray'>Dirección</p>
-                        <textarea 
-                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
-                            value={direccion}
-                            onChange={event => {setDireccion(event.target.value)}}
-                        />
-                    </div>
-                    <div className='justify-self-center'>
-                        <p className='font-semibold text-gray'>Ciudad</p>
+                        <p className='font-semibold text-gray'>YouTube</p>
                         <input 
-                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
-                            type='text' 
-                            value={ciudad}
-                            onChange={event => {setCiudad(event.target.value)}}
-                        />
-                    </div>
-                    <div className='justify-self-center'>
-                        <p className='font-semibold text-gray'>País</p>
-                        <input 
-                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white focus:outline-none' 
-                            type='text' 
-                            value={pais}
-                            onChange={event => {setPais(event.target.value)}}
+                            className='w-64 shadow drop-shadow p-1 shadow-primary border-primary bg-solid-white' 
+                            type='url' 
+                            value={youtube}
+                            onChange={event => {setYoutube(event.target.value)}}
                         />
                     </div>
                 </div>
@@ -212,7 +200,7 @@ const CooperanteForm = ({}) => {
                     <button
                         type="button"
                         className="w-3/4 mt-8 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-gray focus:outline-none focus:ring-offset-2 sm:ml-3 sm:text-sm"
-                        onClick={() => saveCooperante()}
+                        onClick={() => saveOng()}
                     >
                         Agregar
                     </button>
@@ -222,4 +210,4 @@ const CooperanteForm = ({}) => {
     )
 }
 
-export default CooperanteForm
+export default OngForm

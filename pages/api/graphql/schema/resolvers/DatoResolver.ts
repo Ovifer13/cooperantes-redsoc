@@ -10,6 +10,14 @@ module.exports = {
         fetchDatos: (dato: any, args: any, { Dato }: any) => (
             Dato.findAll()
         )
+    },
+
+    Mutation: {
+        createDato: (dato: any, args: any, { Dato }: any) => {
+            return Dato.create({
+                ...args.createFields
+            })
+        }
     }
 
 }

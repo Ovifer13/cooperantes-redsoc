@@ -12,8 +12,22 @@ module.exports = gql`
     datos: [Dato]
   }
 
+  input CreateOngInput {
+    nombre: String
+    siglas: String
+    mision: String
+    vision: String
+    contacto: String
+  }
+
   type Query {
     fetchOngs: [Ong]
+  }
+
+  type Mutation {
+    createOng(
+      createFields: CreateOngInput
+    ): Ong
   }
 
 `

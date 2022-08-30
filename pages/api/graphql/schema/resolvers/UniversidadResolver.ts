@@ -10,6 +10,14 @@ module.exports = {
         fetchUniversidades: (universidad: any, args: any, { Universidad }: any) => (
             Universidad.findAll()
         )
+    },
+
+    Mutation: {
+        createUniversidad: (universidad: any, args: any, { Universidad }: any) => {
+            return Universidad.create({
+                ...args.createFields
+            })
+        }
     }
 
 }

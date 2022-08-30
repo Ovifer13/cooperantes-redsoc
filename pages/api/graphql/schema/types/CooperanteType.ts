@@ -12,9 +12,24 @@ module.exports = gql`
     ciudad: String
     datos: [Dato]
   }
+  
+  input CreateCooperanteInput {
+    nombre: String
+    siglas: String
+    mision: String
+    direccion: String
+    pais: String
+    ciudad: String
+  }
 
   type Query {
     fetchCooperantes: [Cooperante]
+  }
+
+  type Mutation {
+    createCooperante(
+      createFields: CreateCooperanteInput,
+    ): Cooperante
   }
 
 `

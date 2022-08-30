@@ -43,9 +43,14 @@ const Admin = ({}) => {
                             name="username"
                             type="text"
                             required
-                            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-primary placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray focus:border-gray focus:z-10 sm:text-sm"
+                            className="appearance-none rounded-none bg-solid-white relative block w-full px-3 py-2 border border-primary placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-gray focus:border-gray focus:z-10 sm:text-sm"
                             placeholder='Usuario'
                             onChange={event => {setUser(event.target.value)}}
+                            onKeyDown={event => {
+                                event.key == 'Enter'
+                                    ? validateUser()
+                                    : ''
+                            }}
                             />
                         </div>
                         <div>
@@ -58,9 +63,14 @@ const Admin = ({}) => {
                             type="password"
                             autoComplete="current-password"
                             required
-                            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-primary placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
+                            className="appearance-none rounded-none relative bg-solid-white block w-full px-3 py-2 border border-primary placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm"
                             placeholder="Contraseña"
                             onChange={event => {setPassword(event.target.value)}}
+                            onKeyDown={event => {
+                                event.key == 'Enter'
+                                    ? validateUser()
+                                    : ''
+                            }}
                             />
                         </div>
                     </div>

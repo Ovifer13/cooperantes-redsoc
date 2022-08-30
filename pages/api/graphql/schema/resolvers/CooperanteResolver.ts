@@ -10,6 +10,14 @@ module.exports = {
         fetchCooperantes: (cooperantes: any, args: any, { Cooperante }: any) => (
             Cooperante.findAll()
         )
+    },
+
+    Mutation: {
+        createCooperante: (cooperante: any, args: any, { Cooperante }: any) => {
+            return Cooperante.create({
+                ...args.createFields
+            })
+        }
     }
 
 }

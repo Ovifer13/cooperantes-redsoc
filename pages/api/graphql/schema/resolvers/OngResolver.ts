@@ -10,6 +10,14 @@ module.exports = {
         fetchOngs: (ong: any, args: any, { Ong }: any) => (
             Ong.findAll()
         )
+    },
+
+    Mutation: {
+        createOng: (ongs: any, args: any, { Ong }: any) => {
+            return Ong.create({
+                ...args.createFields
+            })
+        }
     }
 
 }
