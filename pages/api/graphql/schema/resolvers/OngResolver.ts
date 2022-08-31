@@ -17,6 +17,12 @@ module.exports = {
             return Ong.create({
                 ...args.createFields
             })
+        },
+
+        deleteOng: (ong: any, args: any, { Ong }: any) => {
+            return (
+                Ong.destroy({ where: args })
+            )
         }
     }
 

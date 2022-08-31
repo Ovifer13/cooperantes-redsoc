@@ -17,6 +17,12 @@ module.exports = {
             return Universidad.create({
                 ...args.createFields
             })
+        },
+
+        deleteUniversidad: (universidad: any, args: any, { Universidad }: any) => {
+            return (
+                Universidad.destroy({ where: args })
+            )
         }
     }
 

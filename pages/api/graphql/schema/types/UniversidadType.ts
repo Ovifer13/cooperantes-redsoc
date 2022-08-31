@@ -30,6 +30,8 @@ module.exports = gql`
     createUniversidad(
       createFields: CreateUniversidadInput
     ): Universidad
+    
+    deleteUniversidad(id: Int): String
   }
 
 `

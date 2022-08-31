@@ -6,7 +6,10 @@ import OngTile from './OngTile'
 const Ongs = () => {
 
     const { error, data, loading } = useQuery<getOngs>(
-        GET_ONGS
+        GET_ONGS, {
+            fetchPolicy: 'network-only',
+            nextFetchPolicy: 'cache-and-network'
+        }
     )
     
     if (error || loading) (
@@ -24,6 +27,7 @@ const Ongs = () => {
                 return (
                     <div key={idx}>
                         <OngTile 
+                            id={ong.id}
                             contacto={ong.contacto}
                             vision={ong.vision}
                             mision={ong.mision}
@@ -45,7 +49,7 @@ const Ongs = () => {
         <div className='Ong mx-20'>
             <div className='my-12'>
                 <h1 className='text-center text-2xl font-bold mt-15 text-primary'>
-                    { 'Contactos ONG' }
+                    { 'Organizaciones relacionadas' }
                 </h1>
             </div>
             <div className='grid grid-rows-1 gap-5'>

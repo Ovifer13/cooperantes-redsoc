@@ -21,3 +21,11 @@ export const CREATE_UNIVERSIDAD = gql `
     }
   }
 `
+
+export const DELETE_UNIVERSIDAD = gql `
+  mutation Universidades(
+    $id: Int
+  ) {
+    deleteUniversidad(id: $id)
+  }
+`

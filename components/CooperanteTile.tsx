@@ -3,6 +3,7 @@ import { dato } from '../interfaces/DatoInterfaces'
 import CooperanteModal from './CooperanteModal'
 
 interface CooperanteTileProps {
+    id: number,
     nombre: string,
     siglas: string,
     mision: string,
@@ -13,6 +14,7 @@ interface CooperanteTileProps {
 }
 
 const CooperanteTile = ({
+    id,
     nombre,
     siglas,
     mision,
@@ -84,6 +86,7 @@ const CooperanteTile = ({
                 </button>
             </div>
             <CooperanteModal 
+                id={id}
                 open={open}
                 setOpen={setOpen}
                 nombre={nombre}

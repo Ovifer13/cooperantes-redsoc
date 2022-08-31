@@ -28,6 +28,8 @@ module.exports = gql`
     createOng(
       createFields: CreateOngInput
     ): Ong
+
+    deleteOng(id: Int): String
   }
 
 `

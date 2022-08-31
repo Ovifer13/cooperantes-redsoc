@@ -21,3 +21,11 @@ export const CREATE_COOPERANTE = gql `
     }
   }
 `
+
+export const DELETE_COOPERANTE = gql `
+  mutation Cooperantes(
+    $id: Int
+  ) {
+    deleteCooperante(id: $id)
+  }
+`

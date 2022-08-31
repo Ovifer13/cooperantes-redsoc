@@ -17,6 +17,12 @@ module.exports = {
             return Cooperante.create({
                 ...args.createFields
             })
+        },
+
+        deleteCooperante: (cooperante: any, args: any, { Cooperante }: any) => {
+            return (
+                Cooperante.destroy({ where: args })
+            )
         }
     }
 

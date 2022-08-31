@@ -1,7 +1,9 @@
-import { Fragment, useRef } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import DeleteModal from './DeleteModal'
 
 const CooperanteModal = ({
+    id,
     open,
     setOpen,
     nombre,
@@ -20,11 +22,14 @@ const CooperanteModal = ({
     renderTelefonos
 } ) => {
 
-  const cancelButtonRef = useRef(null)
+    const [isAdmin, setIsAdmin] = useState(localStorage.getItem('admin') ? true : false)
+    const [openDeleteModal, setOpenDeleteModal] = useState(false)
+
+    const cancelButtonRef = useRef(null)
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-50" initialFocus={cancelButtonRef} onClose={setOpen}>
+      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -55,13 +60,13 @@ const CooperanteModal = ({
                       <Dialog.Title as="h3" className="text-2xl leading-6 font-medium text-primary text-center mb-5">
                         { nombre }
                       </Dialog.Title>
-                      <Dialog.Description as='p' className=''>
+                      <Dialog.Description as='div' className=''>
                         <div className="grid grid-cols-1 gap-4 mt-2">
                             <div className={`${siglas ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Siglas</p> 
                                 { siglas }
                             </div>
-                            <div className={`text-justify ${mision ? 'block' : 'hidden'}`}>
+                            <div className={`md:text-justify ${mision ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Mision</p> 
                                 { mision }
                             </div>
@@ -77,25 +82,25 @@ const CooperanteModal = ({
                                 <p className='font-semibold text-gray'>Email</p>
                                 { email }
                             </div>
-                            <div className={`${paginaWeb ? 'block' : 'hidden'}`}>
+                            <div className={`text-ellipsis overflow-hidden ${paginaWeb ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Página Web</p>
                                 <a className='hover:font-bold hover:text-primary' href={paginaWeb}>
                                     { paginaWeb }
                                 </a>
                             </div>
-                            <div className={`${facebook ? 'block' : 'hidden'}`}>
+                            <div className={`text-ellipsis overflow-hidden ${facebook ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Facebook</p> 
                                 <a className='hover:font-bold hover:text-primary' href={facebook}>
                                     { facebook }
                                 </a>
                             </div>
-                            <div className={`${instagram ? 'block' : 'hidden'}`}>
+                            <div className={`text-ellipsis overflow-hidden ${instagram ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Instagram</p>
                                 <a className='hover:font-bold hover:text-primary' href={instagram}>
                                     { instagram }
                                 </a>
                             </div>
-                            <div className={`${twitter ? 'block' : 'hidden'}`}>
+                            <div className={`text-ellipsis overflow-hidden ${twitter ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Twitter</p> 
                                 <a className='hover:font-bold hover:text-primary' href={twitter}>
                                     { twitter }
@@ -103,30 +108,46 @@ const CooperanteModal = ({
                             </div>
                             <div className={`${direccion ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Direccion</p> 
-                                { direccion }
+                                    { direccion }
                             </div>
                             <div className={`${ciudad ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Ciudad</p> 
-                                { ciudad }
+                                    { ciudad }
                             </div>
                             <div className={`${pais ? 'block' : 'hidden'}`}>
                                 <p className='font-semibold text-gray'>Pais</p> 
-                                { pais }
+                                    { pais }
                             </div>
                         </div>
                       </Dialog.Description>
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <div className="bg-gray-50 px-4 py-3 sm:px-6 md:content-center md:flex md:justify-center md:space-x-20">
+                    {isAdmin &&
+                        <button
+                            type="button"
+                            className="w-full inline-flex justify-center mb-5 rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm md:mb-0"
+                            onClick={() => setOpenDeleteModal(true)}
+                        >
+                            Eliminar
+                        </button>
+                    }
                   <button
                     type="button"
-                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray text-base font-medium text-white hover:bg-primary focus:outline-none focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary focus:outline-none focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => setOpen(false)}
                   >
                     Cerrar
                   </button>
                 </div>
+                <DeleteModal 
+                    open = {openDeleteModal}
+                    setOpen = {setOpenDeleteModal}
+                    title = {'Cooperante'}
+                    nombre = {nombre}
+                    id= {id}
+                />
               </Dialog.Panel>
             </Transition.Child>
           </div>

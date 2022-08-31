@@ -6,7 +6,10 @@ import CooperanteTile from './CooperanteTile'
 const Cooperantes = () => {
 
     const { error, data, loading } = useQuery<getCooperantes>(
-        GET_COOPERANTES
+        GET_COOPERANTES, {
+            fetchPolicy: 'network-only',
+            nextFetchPolicy: 'cache-and-network'
+        }
     )
     
     if (error || loading) (
@@ -31,6 +34,7 @@ const Cooperantes = () => {
                             pais={cooperante.pais}
                             siglas={cooperante.siglas}
                             datos={datos}
+                            id={cooperante.id}
                         />
                     </div>
                 )

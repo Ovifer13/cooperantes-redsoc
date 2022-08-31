@@ -6,7 +6,10 @@ import UniversidadTile from './UniversidadTile'
 const Universidades = () => {
 
     const { error, data, loading } = useQuery<getUniversidades>(
-        GET_UNIVERSIDADES
+        GET_UNIVERSIDADES, {
+            fetchPolicy: 'network-only',
+            nextFetchPolicy: 'cache-and-network'
+        }
     )
     
     if (error || loading) (
@@ -24,6 +27,7 @@ const Universidades = () => {
                 return (
                     <div key={idx}>
                         <UniversidadTile 
+                            id={universidad.id}
                             nombre={universidad.nombre}
                             cargo={universidad.cargo}
                             contacto={universidad.contacto}

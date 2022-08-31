@@ -30,6 +30,8 @@ module.exports = gql`
     createCooperante(
       createFields: CreateCooperanteInput,
     ): Cooperante
+
+    deleteCooperante(id: Int): String
   }
 
 `

@@ -19,3 +19,11 @@ export const CREATE_ONG = gql `
     }
   }
 `
+
+export const DELETE_ONG = gql `
+  mutation Ongs(
+    $id: Int
+  ) {
+    deleteOng(id: $id)
+  }
+`

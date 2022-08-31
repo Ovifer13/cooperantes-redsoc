@@ -3,6 +3,7 @@ import { dato } from '../interfaces/DatoInterfaces'
 import UniversidadModal from './UniversidadModal'
 
 interface UniversidadTileProps {
+    id: number,
     nombre: string,
     cargo: string,
     contacto: string,
@@ -13,6 +14,7 @@ interface UniversidadTileProps {
 }
 
 const UniversidadTile = ({
+    id,
     nombre,
     cargo,
     contacto,
@@ -58,6 +60,7 @@ const UniversidadTile = ({
                 </button>
             </div>
             <UniversidadModal 
+                id={id}
                 open={open}
                 setOpen={setOpen}
                 nombre={nombre}

@@ -3,6 +3,7 @@ import { dato } from '../interfaces/DatoInterfaces'
 import OngModal from './OngModal'
 
 interface OngTileProps {
+    id: number,
     nombre: string,
     siglas: string,
     mision: string,
@@ -12,6 +13,7 @@ interface OngTileProps {
 }
 
 const OngTile = ({
+    id,
     nombre,
     siglas,
     mision,
@@ -82,6 +84,7 @@ const OngTile = ({
                 </button>
             </div>
             <OngModal 
+                id={id}
                 open={open}
                 setOpen={setOpen}
                 nombre={nombre}
