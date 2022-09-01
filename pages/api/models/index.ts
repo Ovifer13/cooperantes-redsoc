@@ -24,12 +24,12 @@ export const sequelize = new Sequelize(
             idle: 10000
         },
         logging: false,
-        // dialectOptions: {
-        //     ssl: {
-        //         require: true,
-        //         rejectUnauthorized: false
-        //     }
-        // },
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        },
     }
 );
 
