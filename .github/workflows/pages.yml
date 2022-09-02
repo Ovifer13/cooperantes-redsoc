@@ -74,6 +74,12 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+            POSTGRES_DB_HOST: ${{ secrets.POSTGRES_DB_HOST }}
+            POSTGRES_DB_USERNAME: ${{ secrets.POSTGRES_DB_USERNAME }}
+            POSTGRES_DB_PASSWORD: ${{ secrets.POSTGRES_DB_PASSWORD }}
+            POSTGRES_DB_NAME: ${{ secrets.POSTGRES_DB_NAME }}
+            POSTGRES_DB_PORT: ${{ secrets.POSTGRES_DB_PORT }}
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
