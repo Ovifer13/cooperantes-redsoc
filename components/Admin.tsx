@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -9,6 +9,12 @@ const Admin = ({}) => {
     const [password, setPassword] = useState('')
 
     const router = useRouter()
+
+    useEffect(() => {
+        if (localStorage.getItem('admin')) {
+            router.push('agregar')
+        }
+    })
 
     const validateUser = () => {
         if (user == 'admin' && password == 'admin'){
