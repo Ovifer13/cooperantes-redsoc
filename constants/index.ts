@@ -5,9 +5,6 @@ import {
     ADMINISTRACION
 } from './strings'
 
-// API
-export const API_v1_URL: string = 'http://localhost:3000/api/v1'
-
 // URL
 export const ORGANIZACIONES_AFILIADAS_URL: string = 'http://redsoc.herokuapp.com/#'
 
